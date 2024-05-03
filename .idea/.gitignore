@@ -1,8 +1,5 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/modules.xml
-/vcs.xml
-/asciidoc-style-guide.iml
 /.gitignore
-/.idea
+.idea/
