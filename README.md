@@ -1,29 +1,80 @@
-# Стайлгайд по работе с языком разметки AsciiDoc на русском языке
+# DocAnalyzer & Terminology Manager
 
-## Описание
-Репозиторий содержит стайлгайд для работы с языком разметки AsciiDoc на русском языке. Собраны рекомендации, стандарты и примеры, которые помогут разработчикам и техническим писателям создавать читаемую, последовательную и понятную документацию.
+A powerful web-based tool for technical writers to analyze documentation, extract terminology, and ensure glossary compliance. Built with Julia and Genie Framework for high-performance text processing.
 
-## Содержание
-1. Введение
-2. Структура документа
-3. Разметка текста
-6. Примеры
-7. Лицензия
+## Features
 
-## Введение
-AsciiDoc - это легкий язык разметки, который обеспечивает простой способ создания структурированных документов. Он часто используется для написания технической документации, руководств пользователя и других типов текстов.
+- **Automated Terminology Extraction**: Identifies potential technical terms using NLP algorithms
+- **Glossary Compliance Checking**: Verifies terminology usage against approved glossaries
+- **Readability Analysis**: Calculates readability scores and metrics
+- **Web-based Interface**: Easy-to-use GUI accessible from any browser
 
-## Структура документа
-Стайлгайд описывает рекомендации по структурированию документов в формате AsciiDoc. Включены разделы, подразделы, списки и другие элементы, которые помогут организовать информацию в документе.
+## Quick Start
 
-## Разметка текста
-Здесь описываются соглашения по форматированию текста, такие как использование заголовков разных уровней, выделение текста жирным или курсивом, изображения, ссылки и прочее.
+### Prerequisites
 
-## Изображения и таблицы
-Приводятся инструкции по вставке изображений и созданию таблиц в AsciiDoc.
+- Julia 1.9 or higher
 
-## Примеры
-Предоставляются примеры кода и документации, соответствующие синтаксису AsciiDoc.
+### Installation
 
-## Лицензия
-Стайлгайд распространяется под лицензией [MIT](https://opensource.org/license/mit).
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/DocAnalyzer.git
+cd DocAnalyzer
+```
+2. **Install dependencies**
+```julia
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+```
+3. **Run the application**
+```bash
+julia bin/server.jl
+```
+4. **Open your browser**. Navigate to `http://localhost:8000`
+
+## Usage
+
+- Upload a document (TXT or MD format)
+- Optional: Upload a CSV glossary file
+- Click Analyze to process your document
+- Review results: terminology suggestions and readability metrics
+
+## Glossary Format
+
+Create a CSV file with terms:
+
+```csv
+term,definition
+API,Application Programming Interface
+GUI,Graphical User Interface
+```
+
+## Project Structure
+
+```text
+DocAnalyzer/
+├── src/
+│   ├── analysis/
+│   │   ├── terminology.jl     # Terminology extraction logic
+│   │   ├── readability.jl     # Readability metrics
+│   │   └── text_processing.jl # Core text processing
+│   └── routes.jl              # URL routing
+├── app/
+│   └── resources/
+│       └── documents/         # MVC components
+├── data/                      # Sample data and glossaries
+├── public/                    # Static assets
+└── bin/
+    └── server.jl              # Application entry point
+```
+
+---
+
+## Running Tests
+
+```julia
+julia> using Pkg
+julia> Pkg.test("DocAnalyzer")
+```
